@@ -1,14 +1,21 @@
 .repo-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr); /* Define 3 colunas */
+    gap: 20px; /* Ajusta o espaçamento entre os cards */
+    padding: 20px; /* Adiciona padding para garantir espaço nas margens */
+    margin: 0 auto; /* Centraliza o grid */
+    max-width: 1200px; /* Define uma largura máxima para o grid */
+  }
+  
+  @media (max-width: 1024px) {
+    .repo-list {
+      grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas em telas médias */
+    }
   }
   
   @media (max-width: 768px) {
     .repo-list {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Ajusta para 1 coluna em telas pequenas */
     }
   }
   
