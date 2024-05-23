@@ -1,0 +1,24 @@
+.load-more {
+    margin-top: 20px;
+  }
+  
+  .load-more button {
+    background-color: #BB86FC;
+    border: none;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .load-more button:hover {
+    background-color: #8AFF80;
+  }
+  
+  .load-more button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+  }
+  

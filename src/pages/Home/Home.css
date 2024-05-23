@@ -1,0 +1,23 @@
+.Home {
+  text-align: center;
+  padding: 20px;
+  background-color: #121212;
+  color: #FFFFFF;
+  width: 100%;
+}
+
+h1 {
+  color: #FFFFFF;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+@media (max-width: 768px) {
+  .repo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .repo-card {
+    width: 100%;
+  }
+}
