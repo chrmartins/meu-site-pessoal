@@ -12,7 +12,9 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, description, htmlUrl }) => {
     <div className="repo-card">
       <h2>{name}</h2>
       <p>{description}</p>
-      <a href={htmlUrl} target="_blank" rel="noopener noreferrer">Acessar Repositório</a>
+      <a href={htmlUrl} target="_blank" rel="noopener noreferrer">
+        Ver Repositório
+      </a>
     </div>
   );
 };

@@ -6,30 +6,33 @@ export interface Repository {
   name: string;
   html_url: string;
   description: string;
+  created_at: string;
 }
 
 export interface User {
   avatar_url: string;
-  name: string;
+  login: string;
 }
 
-export const useFetchRepos = () => {
+export const useFetchRepos = (username: string) => {
   return useInfiniteQuery<Repository[], Error>({
-    queryKey: ['repos'],
+    queryKey: ['repos', username],
     queryFn: async ({ pageParam = 1 }: any) => {
-      return fetchRepos(pageParam, 9);
+      return fetchRepos(username, pageParam, 9);
     },
     getNextPageParam: (lastPage, allPages) => {
       if (lastPage.length === 0) return undefined;
       return allPages.length + 1;
     },
     initialPageParam: 1,
+    enabled: !!username, 
   });
 };
 
-export const useFetchUser = () => {
+export const useFetchUser = (username: string) => {
   return useQuery<User, Error>({
-    queryKey: ['user'],
-    queryFn: fetchUserData,
+    queryKey: ['user', username],
+    queryFn: () => fetchUserData(username),
+    enabled: !!username, 
   });
 };

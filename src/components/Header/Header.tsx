@@ -1,6 +1,6 @@
-import React from 'react';
-import UserInfo from '../UserInfo/UserInfo';
-import './Header.css';
+import React from "react";
+import UserInfo from "../UserInfo/UserInfo";
+import "./Header.css";
 
 interface HeaderProps {
   avatarUrl: string;
@@ -10,9 +10,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ avatarUrl, username }) => {
   return (
     <header className="header">
-      <div className="title-container">
-        <h1 className="title">Meus Repositórios do GitHub</h1>
-      </div>
+      <h1 className="title">Meus Repositórios do GitHub</h1>
       <UserInfo avatarUrl={avatarUrl} username={username} />
     </header>
   );

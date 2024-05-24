@@ -1,40 +1,43 @@
 import React from "react";
+import ListCards from "../../components/ListCards/ListCards";
 import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
 import Spinner from "../../components/Spinner/Spinner";
-import ListCards from "../../components/ListCards/ListCards";
-
+import ErrorToast from "../../components/ErrorToast/ErrorToast";
 import "./Home.css";
-import { useFetchRepos, useFetchUser } from "../../services/useFetchRepos";
-import Header from "../../components/Header/Header";
 
-const Home: React.FC = () => {
-  const {
-    data,
-    error,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useFetchRepos();
+interface HomeProps {
+  repos: any[];
+  loading: boolean;
+  error: string;
+  fetchNextPage: () => void;
+  hasNextPage: boolean | undefined;
+  isFetchingNextPage: boolean;
+}
 
-  const { data: userData } = useFetchUser();
-
-  if (isLoading) return <Spinner />;
-  if (error) return <div>Error loading repositories: {error.message}</div>;
-
+const Home: React.FC<HomeProps> = ({
+  repos,
+  loading,
+  error,
+  fetchNextPage,
+  hasNextPage,
+  isFetchingNextPage,
+}) => {
   return (
     <div className="Home">
-      {userData && (
-        <Header avatarUrl={userData.avatar_url} username={userData.name} />
-      )}
-
-      <ListCards data={data?.pages ?? []} />
-      {hasNextPage && (
-        <LoadMoreButton
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-          isLoading={isFetchingNextPage}
-        />
+      {error && <ErrorToast message={error} />}
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <ListCards data={repos} />
+          {hasNextPage && (
+            <LoadMoreButton
+              onClick={fetchNextPage}
+              disabled={isFetchingNextPage}
+              isLoading={isFetchingNextPage}
+            />
+          )}
+        </>
       )}
     </div>
   );

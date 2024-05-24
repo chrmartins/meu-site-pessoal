@@ -15,6 +15,7 @@
   
   .load-more button:hover {
     background-color: #8AFF80;
+    color: #121212;
   }
   
   .load-more button:disabled {

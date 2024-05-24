@@ -1,0 +1,47 @@
+.home-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #FFFFFF;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+
+  .input-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .username-input {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    border: 2px solid #BB86FC;
+    border-radius: 5px;
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    height: 41px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #BB86FC;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #8AFF80;
+    color: #121212;
+  }
+  

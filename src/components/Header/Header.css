@@ -1,21 +1,16 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #121212;
-    color: #FFFFFF;
-    border-bottom: 1px solid #BB86FC;
-    height: 55px;
-  }
-  
-  .title-container {
-    flex-grow: 1;
-  }
-  
-  .title {
-    font-size: 1.5em;
-    color: #FFFFFF;
-    text-align: left; /* Alinha o título à esquerda */
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #121212;
+  color: #ffffff;
+  border-bottom: 1px solid #bb86fc;
+  height: 55px;
+}
+
+.title {
+  margin-top: 45px;
+  font-size: 1.5em;
+  color: #ffffff;
+}
