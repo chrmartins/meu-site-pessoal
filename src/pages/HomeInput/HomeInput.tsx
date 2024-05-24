@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import "./HomeInput.css";
+import React, { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './HomeInput.css';
 
-interface HomeInputProps {
-  onSubmit: (username: string) => void;
-}
+function HomeInput({ onSubmit }: { onSubmit: (username: string) => void }) {
+  const [username, setUsername] = useState('');
+  const navigate = useNavigate();
 
-const HomeInput: React.FC<HomeInputProps> = ({ onSubmit }) => {
-  const [username, setUsername] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     onSubmit(username);
+    navigate('/home');
   };
 
   return (
     <div className="home-input">
+      <h1>Digite seu GitHub Username</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <input
@@ -24,13 +24,11 @@ const HomeInput: React.FC<HomeInputProps> = ({ onSubmit }) => {
             placeholder="GitHub Username"
             className="username-input"
           />
-          <button type="submit" className="submit-button">
-            Buscar Repositórios
-          </button>
+          <button type="submit" className="submit-button">Buscar Repositórios</button>
         </div>
       </form>
     </div>
   );
-};
+}
 
 export default HomeInput;
